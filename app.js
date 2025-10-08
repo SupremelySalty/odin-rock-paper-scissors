@@ -28,33 +28,45 @@ function getHumanChoice() {
     } else if (input.toLowerCase() === "paper") {
         return "Paper";
     } else if (input.toLowerCase() === "scissors") {
-        return "Scissors"
+        return "Scissors";
     }
 }
 
-function playRound(computerChoice, humanChoice) {
-    // Add conditionals for winning or losing depending on options
-    if (computerChoice === humanChoice) {
-        return "It's a tie!"
-    } else if (
-        (computerChoice === "Rock" && humanChoice === "Paper") ||
-        (computerChoice === "Paper" && humanChoice === "Scissors") ||
-        (computerChoice === "Scissors" && humanChoice === "Rock")
-     ) {
-        // Increase human score and add message for winning
-        ++humanScore
-        return "You win! " + humanChoice + " beats " + computerChoice + "!"
+function playGame () {
+    let humanScore = 0
+    let computerScore = 0
+
+    function playRound(computerChoice, humanChoice) {
+        // Add conditionals for winning or losing depending on options
+        if (computerChoice === humanChoice) {
+            return alert("It's a tie!");
+        } else if (
+            (computerChoice === "Rock" && humanChoice === "Paper") ||
+            (computerChoice === "Paper" && humanChoice === "Scissors") ||
+            (computerChoice === "Scissors" && humanChoice === "Rock")
+        ) {
+            // Increase human score and add message for winning
+            ++humanScore;
+            return alert("You win! " + humanChoice + " beats " + computerChoice + "!");
+        } else {
+            // Increase computer score and add message for losing
+            ++computerScore;
+            return alert("You lose!" + computerChoice + " beats " + humanChoice + "!");
+        }
+    }
+    // Play round 5 times
+    playRound(getComputerChoice(), getHumanChoice())
+    playRound(getComputerChoice(), getHumanChoice())
+    playRound(getComputerChoice(), getHumanChoice())
+    playRound(getComputerChoice(), getHumanChoice())
+    playRound(getComputerChoice(), getHumanChoice())
+
+    // Declares winner
+    if (humanScore > computerScore) {
+        return alert("Congratulations, you win!\n Human: " + humanScore + ", Computer: " + computerScore);
+    } else if (computerScore > humanScore) {
+        return alert("Sorry, you lose!\n Human: " + humanScore + ", Computer: " + computerScore);
     } else {
-        // Increase computer score and add message for losing
-        ++computerScore
-        return "You lose!" + computerChoice + " beats " + humanChoice + "!"
+        return alert("Whoops, you tied!\n Human: " + humanScore + ", Computer:" + computerScore);
     }
 }
-
-let computerSelection = getComputerChoice()
-let humanSelection = getHumanChoice()
-
-let humanScore = 0
-let computerScore = 0
-
-console.log(playRound(computerSelection, humanSelection))
