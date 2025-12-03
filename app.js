@@ -54,12 +54,6 @@ function playGame () {
             return alert("You lose!" + computerChoice + " beats " + humanChoice + "!");
         }
     }
-    // Play round 5 times
-    playRound(getComputerChoice(), getHumanChoice())
-    playRound(getComputerChoice(), getHumanChoice())
-    playRound(getComputerChoice(), getHumanChoice())
-    playRound(getComputerChoice(), getHumanChoice())
-    playRound(getComputerChoice(), getHumanChoice())
 
     // Declares winner
     if (humanScore > computerScore) {
