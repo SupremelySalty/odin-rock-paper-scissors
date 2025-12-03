@@ -32,40 +32,34 @@ function getHumanChoice() {
     }
 }
 
-function playGame () {
-    let humanScore = 0
-    let computerScore = 0
+let humanScore = 0;
+let computerScore = 0;
 
-    function playRound(computerChoice, humanChoice) {
-        // Add conditionals for winning or losing depending on options
-        if (computerChoice === humanChoice) {
-            return alert("It's a tie!");
-        } else if (
-            (computerChoice === "Rock" && humanChoice === "Paper") ||
-            (computerChoice === "Paper" && humanChoice === "Scissors") ||
-            (computerChoice === "Scissors" && humanChoice === "Rock")
-        ) {
-            // Increase human score and add message for winning
-            ++humanScore;
-            return alert("You win! " + humanChoice + " beats " + computerChoice + "!");
-        } else {
-            // Increase computer score and add message for losing
-            ++computerScore;
-            return alert("You lose!" + computerChoice + " beats " + humanChoice + "!");
-        }
-    }
-
-    // Declares winner
-    if (humanScore > computerScore) {
-        return alert("Congratulations, you win!\n Human: " + humanScore + ", Computer: " + computerScore);
-    } else if (computerScore > humanScore) {
-        return alert("Sorry, you lose!\n Human: " + humanScore + ", Computer: " + computerScore);
+function playRound(computerChoice, humanChoice) {
+    // Add conditionals for winning or losing depending on options
+    if (computerChoice === humanChoice) {
+        return alert("It's a tie!");
+    } else if (
+        (computerChoice === "Rock" && humanChoice === "Paper") ||
+        (computerChoice === "Paper" && humanChoice === "Scissors") ||
+        (computerChoice === "Scissors" && humanChoice === "Rock")
+    ) {
+        // Increase human score and add message for winning
+        ++humanScore;
+        return alert("You win! " + humanChoice + " beats " + computerChoice + "!");
     } else {
-        return alert("Whoops, you tied!\n Human: " + humanScore + ", Computer:" + computerScore);
+        // Increase computer score and add message for losing
+        ++computerScore;
+        return alert("You lose! " + computerChoice + " beats " + humanChoice + "!");
     }
-}
+};
 
-// Defining buttons
-const rockButton = document.getElementById(rock)
-const paperButton = document.getElementById(paper)
-const scissorsButton = document.getElementById(scissors)
+let computerSelection = getComputerChoice()
+
+const rockButton = document.getElementById("rock-button");
+const paperButton = document.getElementById("paper-button");
+const scissorsButton = document.getElementById("scissors-button");
+
+rockButton.addEventListener('click', playRound)
+paperButton.addEventListener('click', playRound)
+scissorButton.addEventListener('click', playRound)
