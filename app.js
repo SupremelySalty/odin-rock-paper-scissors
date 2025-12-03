@@ -60,6 +60,9 @@ const rockButton = document.getElementById("rock-button");
 const paperButton = document.getElementById("paper-button");
 const scissorsButton = document.getElementById("scissors-button");
 
-rockButton.addEventListener('click', playRound)
-paperButton.addEventListener('click', playRound)
-scissorButton.addEventListener('click', playRound)
+rockButton.addEventListener('click', () =>{
+    playRound(getComputerChoice(), "Rock")});
+paperButton.addEventListener('click', () =>{
+    playRound(getComputerChoice(), "Paper")});
+scissorsButton.addEventListener('click', () =>{
+    playRound(getComputerChoice(), "Scissors")});
