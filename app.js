@@ -64,3 +64,8 @@ function playGame () {
         return alert("Whoops, you tied!\n Human: " + humanScore + ", Computer:" + computerScore);
     }
 }
+
+// Defining buttons
+const rockButton = document.getElementById(rock)
+const paperButton = document.getElementById(paper)
+const scissorsButton = document.getElementById(scissors)
