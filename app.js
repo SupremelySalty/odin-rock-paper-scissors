@@ -36,9 +36,11 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(computerChoice, humanChoice) {
+    let result = ""
+
     // Add conditionals for winning or losing depending on options
     if (computerChoice === humanChoice) {
-        return alert("It's a tie!");
+        result = "It's a tie!";
     } else if (
         (computerChoice === "Rock" && humanChoice === "Paper") ||
         (computerChoice === "Paper" && humanChoice === "Scissors") ||
@@ -46,12 +48,13 @@ function playRound(computerChoice, humanChoice) {
     ) {
         // Increase human score and add message for winning
         ++humanScore;
-        return alert("You win! " + humanChoice + " beats " + computerChoice + "!");
+        result = "You win! " + humanChoice + " beats " + computerChoice + "!";
     } else {
         // Increase computer score and add message for losing
         ++computerScore;
-        return alert("You lose! " + computerChoice + " beats " + humanChoice + "!");
+        result = "You lose! " + computerChoice + " beats " + humanChoice + "!";
     }
+    document.getElementById("results").textContent = result
 };
 
 let computerSelection = getComputerChoice()
