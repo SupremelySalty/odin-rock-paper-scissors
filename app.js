@@ -36,7 +36,8 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(computerChoice, humanChoice) {
-    let result = ""
+    let result = "";
+    let score = "Player: " + humanScore + " || Computer: " + computerScore;
 
     // Add conditionals for winning or losing depending on options
     if (computerChoice === humanChoice) {
@@ -54,10 +55,11 @@ function playRound(computerChoice, humanChoice) {
         ++computerScore;
         result = "You lose! " + computerChoice + " beats " + humanChoice + "!";
     }
-    document.getElementById("results").textContent = result
+    document.getElementById("results").textContent = result;
+    document.getElementById("score").textContent = score;
 };
 
-let computerSelection = getComputerChoice()
+let computerSelection = getComputerChoice();
 
 const rockButton = document.getElementById("rock-button");
 const paperButton = document.getElementById("paper-button");
