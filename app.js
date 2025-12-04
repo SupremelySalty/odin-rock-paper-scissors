@@ -59,8 +59,6 @@ function playRound(computerChoice, humanChoice) {
     document.getElementById("score").textContent = score;
 };
 
-let computerSelection = getComputerChoice();
-
 const rockButton = document.getElementById("rock-button");
 const paperButton = document.getElementById("paper-button");
 const scissorsButton = document.getElementById("scissors-button");
