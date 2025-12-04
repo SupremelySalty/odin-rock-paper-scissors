@@ -17,7 +17,7 @@ function getComputerChoice() {
         return "Scissors";
         break;
     }
-}
+};
 
 function getHumanChoice() {
     // Prompt for user input
@@ -30,7 +30,7 @@ function getHumanChoice() {
     } else if (input.toLowerCase() === "scissors") {
         return "Scissors";
     }
-}
+};
 
 let humanScore = 0;
 let computerScore = 0;
@@ -48,13 +48,26 @@ function playRound(computerChoice, humanChoice) {
         (computerChoice === "Scissors" && humanChoice === "Rock")
     ) {
         // Increase human score and add message for winning
-        ++humanScore;
+        humanScore += 1;
         result = "You win! " + humanChoice + " beats " + computerChoice + "!";
+        score = "Player: " + humanScore + " || Computer: " + computerScore
     } else {
         // Increase computer score and add message for losing
-        ++computerScore;
+        computerScore += 1;
         result = "You lose! " + computerChoice + " beats " + humanChoice + "!";
+        score = "Player: " + humanScore + " || Computer: " + computerScore
+    };
+
+    if (humanScore >= 5) {
+        result += " Player wins the game!"
+        humanScore = 0
+        computerScore = 0
+    } else if (computerScore >= 5) {
+        result += " Computer wins the game!"
+        humanScore = 0
+        computerScore = 0
     }
+
     document.getElementById("results").textContent = result;
     document.getElementById("score").textContent = score;
 };
